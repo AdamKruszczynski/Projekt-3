@@ -1,14 +1,22 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         Integer a = 12;
         metoda(a);
 
-        dzielenie(10,2);
+        try{
+            dzielenie(10,0);
+        }catch (DzieleniePrzezZero e){
+            System.out.println("Dzielenie przez zero: " + e);
+        }
     }
 
-    public static void dzielenie(int a, int b){
-        System.out.println("Wynikiem dzielenia jest: " + a/b);
+    public static void dzielenie(int a, int b) throws DzieleniePrzezZero{
+        if (b != 0) {
+            System.out.println("Wynikiem dzielenia jest: " + a / b);
+        } else {
+            throw new DzieleniePrzezZero("nie prawidłowe dane");
+        }
     }
 
 
